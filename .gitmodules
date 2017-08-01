@@ -1,0 +1,3 @@
+[submodule "oce-win-bundle"]
+	path = oce-win-bundle
+	url = git@github.com:heropan/oce-win-bundle.git
