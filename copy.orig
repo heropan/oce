@@ -1,0 +1,7 @@
+echo "Usage : FetchBundle.bat <version>"
+xcopy /Y /S .\include\oce     %FreeCAD_3rdParty%\include\
+xcopy /Y /S .\share\oce       %FreeCAD_3rdParty%\share\
+xcopy /Y /S .\Win64\lib\*.lib %FreeCAD_3rdParty%\lib\
+xcopy /Y /S .\Win64\lib\*.pdb %FreeCAD_Sln%\bin\
+xcopy /Y /S .\Win64\bin\*.dll %FreeCAD_Sln%\bin\
+pause
