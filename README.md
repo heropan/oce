@@ -81,6 +81,32 @@ $ git pull
 
 Read [BUILD.Unix.md](BUILD.Unix.md) file for instructions on compiling for Unix (for both Linux and MacOSX users).Windows users should read [BUILD.MINGWw64.md](BUILD.MINGWw64.md) if they use Mingw or [BUILD.MSVC.md](BUILD.MSVC.md) if they prefer MSVC compiler.
 
+## DipCAD compile
+
+  * clone
+``` bash
+$ git clone git@git.coding.net:DipCad/DipCAD_oce.git
+```
+确保DipCAD_oce目录下包含oce-win-bundle目录，并且不为空(oce-win-bundle是DipCAD_oce的子模块)，
+如果没有oce-win-bundle目录，或者目录为空，执行以下命令:
+``` bash
+$ cd DipCAD_oce
+$ git submodule init
+$ git submodule update
+```
+子模块的官方使用说明, [点这里](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
+  * cmake
+    - 创建 DipCAD_oce_sln/ and DipCAD_oce_install/
+    - 打开CMakeGUI, 分别选择 DipCAD_oce/ 和 DipCAD_oce_sln/ 目录
+    - 点击 Configure
+    - 修改 OCE_INSTALL_PREFIX 设置到 oce_install/ 目录
+    - 再次点击 Configure
+    - 点击 Generate
+
+  * build
+    - 用VS2012打开.sln，生成解决方案.
+    - 单独生成 INSTALL 项目，将会安装所有的 .hxx .dll .pdb .lib等等文件到相应的环境变量处 %FreeCAD_Sln% and %FreeCAD_3rdParty%
+
 ## License
 
 OCE has the same license as OCCT; since OCCT 6.7.0 (OCE-0.16.x), you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License version 2.1 as published by the Free Software Foundation, with special exception defined in the file OCCT_LGPL_EXCEPTION.txt. See LICENSE_LGPL_21.txt for the full license text.
